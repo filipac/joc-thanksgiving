@@ -27,6 +27,8 @@ export const Joc = ({ all_persons, options }) => {
     setDone(true);
   }, [pers]);
 
+  const allHasResult = pers.every((p) => p.raspuns && p.respuns.length > 0);
+
   return (
     <div suppressHydrationWarning>
       <Head>
@@ -40,7 +42,7 @@ export const Joc = ({ all_persons, options }) => {
           return (
             <div key={person.image} suppressHydrationWarning>
               <div className="mb-2">
-                Persoana {key + 1} {true && <span>({person.name})</span>}
+                Persoana {key + 1} {false && <span>({person.name})</span>}
               </div>
               <div>
                 <Image
@@ -89,12 +91,15 @@ export const Joc = ({ all_persons, options }) => {
           );
         })}
         <div className="py-4">
+          {/* allHasResult */}
           {!done && (
             <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full"
+              className={`${
+                allHasResult ? 'bg-blue-500 hover:bg-blue-700' : 'bg-gray-500'
+              } text-white font-bold py-2 px-4 rounded w-full`}
               onClick={evalueaza}
             >
-              Evalueaza
+              {allHasResult ? 'Evalueaza' : 'Raspunde la toate inainte'}
             </button>
           )}
           {done && (

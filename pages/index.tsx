@@ -5,9 +5,10 @@ export async function getStaticProps(context) {
   const random = () => Math.random() - 0.5;
   return {
     props: {
-      options: [...persoane].map((p) => p.name),
-      all_persons: [...persoane].map((p) => ({ ...p, raspuns: '' })),
-      // .sort(random),
+      options: [...persoane].sort(random).map((p) => p.name),
+      all_persons: [...persoane]
+        .map((p) => ({ ...p, raspuns: '' }))
+        .sort(random),
     }, // will be passed to the page component as props
   };
 }

@@ -12,31 +12,31 @@ export type Person = {
 export const persoane = [
     {
         image: 'p1.jpg',
-        name: '1',
+        name: 'Thomas Fabian',
     },
     {
         image: 'p2.jpg',
-        name: '2',
+        name: 'Miriam Fabian',
     },
     {
         image: 'p3.jpg',
-        name: '3',
+        name: 'Dani Cosmescu',
     },
     {
         image: 'p4.jpg',
-        name: '4',
+        name: 'Mali Cosmescu',
     },
     {
         image: 'p5.jpg',
-        name: '5',
+        name: 'Darius Rusu',
     },
     {
         image: 'p6.jpg',
-        name: '6',
+        name: 'Doariana Minzat',
     },
     {
         image: 'p7.jpg',
-        name: '7',
+        name: 'Liam Minzat',
     },
     {
         image: 'p8.jpg',
@@ -48,11 +48,11 @@ export const persoane = [
     },
     {
         image: 'p10.jpg',
-        name: '10',
+        name: 'Nati Hedean',
     },
     {
         image: 'p11.jpg',
-        name: '11',
+        name: 'Alina Hedean',
     },
     {
         image: 'p12.jpg',
@@ -84,14 +84,14 @@ export const persoane = [
     },
     {
         image: 'p19.jpg',
-        name: '19',
+        name: 'Hany Hedean',
     },
     {
         image: 'p20.jpg',
-        name: '20',
+        name: 'Nydia Hedean',
     },
     {
         image: 'p21.jpg',
-        name: '21',
+        name: 'Ayilin Hedean',
     },
 ];
