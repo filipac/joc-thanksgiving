@@ -76,11 +76,12 @@ export const Joc = ({ all_persons, options }: Props) => {
                         if (p.image === person.image) {
                           p.raspuns = raspuns;
                         } else {
-                          p.raspuns = '';
+                          if (p.raspuns === raspuns) {
+                            p.raspuns = '';
+                          }
                         }
                         return p;
                       });
-                      console.log({ newPers });
                       setPers(newPers);
                     }}
                   >
@@ -89,7 +90,11 @@ export const Joc = ({ all_persons, options }: Props) => {
                       <option>{person.raspuns}</option>
                     )}
                     {[...notChosenOptions].map((option) => {
-                      return <option value={option}>{option}</option>;
+                      return (
+                        <option key={option} value={option}>
+                          {option}
+                        </option>
+                      );
                     })}
                   </select>
                 )}
