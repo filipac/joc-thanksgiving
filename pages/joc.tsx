@@ -32,6 +32,12 @@ export const Joc = ({ all_persons, options }: Props) => {
     return p.raspuns && p.raspuns.length > 0;
   });
 
+  const notChosenOptions = options.filter((o) => {
+    return !pers.some((p) => p.raspuns === o);
+  });
+
+  console.log(notChosenOptions);
+
   return (
     <div suppressHydrationWarning>
       <Head>
@@ -66,17 +72,24 @@ export const Joc = ({ all_persons, options }: Props) => {
                     onChange={(e) => {
                       const raspuns = e.target.value;
                       const newPers = [...pers];
-                      newPers[key].raspuns = raspuns;
+                      newPers.map((p) => {
+                        if (p.image === person.image) {
+                          p.raspuns = raspuns;
+                        } else {
+                          p.raspuns = '';
+                        }
+                        return p;
+                      });
+                      console.log({ newPers });
                       setPers(newPers);
                     }}
                   >
                     <option value="">Alege</option>
-                    {options.map((option) => {
-                      return (
-                        <option key={option} value={option}>
-                          {option}
-                        </option>
-                      );
+                    {person.raspuns && person.raspuns.length > 0 && (
+                      <option>{person.raspuns}</option>
+                    )}
+                    {[...notChosenOptions].map((option) => {
+                      return <option value={option}>{option}</option>;
                     })}
                   </select>
                 )}
