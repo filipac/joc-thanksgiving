@@ -39,6 +39,9 @@ export const Joc = ({ all_persons, options }: Props) => {
         className="grid columns-1 items-center justify-center mt-12"
         suppressHydrationWarning
       >
+        <div className="w-full text-center text-xl font-bold mb-3">
+          Ghiceste bebelusul
+        </div>
         {pers.map((person, key) => {
           return (
             <div key={person.image} suppressHydrationWarning>
