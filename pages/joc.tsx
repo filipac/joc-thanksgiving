@@ -66,37 +66,53 @@ export const Joc = ({ all_persons, options }: Props) => {
               </div>
               <div className="mt-2">
                 {!done && (
-                  <select
-                    className="w-full my-2"
-                    value={person.raspuns}
-                    onChange={(e) => {
-                      const raspuns = e.target.value;
-                      const newPers = [...pers];
-                      newPers.map((p) => {
-                        if (p.image === person.image) {
-                          p.raspuns = raspuns;
-                        } else {
-                          if (p.raspuns === raspuns) {
-                            p.raspuns = '';
+                  <>
+                    <select
+                      className="w-full my-2"
+                      value={person.raspuns}
+                      onChange={(e) => {
+                        const raspuns = e.target.value;
+                        const newPers = [...pers];
+                        newPers.map((p) => {
+                          if (p.image === person.image) {
+                            p.raspuns = raspuns;
+                          } else {
+                            if (p.raspuns === raspuns) {
+                              p.raspuns = '';
+                            }
                           }
-                        }
-                        return p;
-                      });
-                      setPers(newPers);
-                    }}
-                  >
-                    <option value="">Alege</option>
-                    {person.raspuns && person.raspuns.length > 0 && (
-                      <option>{person.raspuns}</option>
-                    )}
-                    {[...notChosenOptions].map((option) => {
-                      return (
-                        <option key={option} value={option}>
-                          {option}
-                        </option>
-                      );
-                    })}
-                  </select>
+                          return p;
+                        });
+                        setPers(newPers);
+                      }}
+                    >
+                      <option value="">Alege</option>
+                      {person.raspuns && person.raspuns.length > 0 && (
+                        <option>{person.raspuns}</option>
+                      )}
+                      {[...notChosenOptions].map((option) => {
+                        return (
+                          <option key={option} value={option}>
+                            {option}
+                          </option>
+                        );
+                      })}
+                    </select>
+                    <div className="text-center">
+                      {person.raspuns && (
+                        <button
+                          className="font-bold py-2 px-4 rounded"
+                          onClick={() => {
+                            const newPers = [...pers];
+                            newPers[key].raspuns = '';
+                            setPers(newPers);
+                          }}
+                        >
+                          Schimba raspunsul
+                        </button>
+                      )}
+                    </div>
+                  </>
                 )}
                 {done && (
                   <div
