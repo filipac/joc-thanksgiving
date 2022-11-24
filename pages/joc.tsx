@@ -2,8 +2,9 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { useCallback, useState } from 'react';
 import { persoane, Rezultat } from '../data';
+import { Props } from './index';
 
-export const Joc = ({ all_persons, options }) => {
+export const Joc = ({ all_persons, options }: Props) => {
   const [pers, setPers] = useState(all_persons);
   const [done, setDone] = useState(false);
   const [puncte, setPuncte] = useState(0);

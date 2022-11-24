@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic';
 import { persoane } from '../data';
 
-export async function getStaticProps(context) {
+export async function getStaticProps(context: any) {
   const random = () => Math.random() - 0.5;
   return {
     props: {
@@ -15,7 +15,11 @@ export async function getStaticProps(context) {
 
 const ComponentWithNoSSR = dynamic(() => import('./joc'), { ssr: false });
 
-export default function Home({ all_persons, options }) {
+export type Props = {
+  all_persons: any;
+  options: any;
+};
+export default function Home({ all_persons, options }: Props) {
   return (
     <ComponentWithNoSSR
       all_persons={all_persons}
