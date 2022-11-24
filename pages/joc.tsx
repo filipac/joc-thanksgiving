@@ -14,7 +14,7 @@ export const Joc = ({ all_persons, options }: Props) => {
     let puncte = 0;
     for (let person of new_pers) {
       if (!person.raspuns) {
-        // return;
+        return;
       }
       if (person.raspuns === person.name) {
         person.result = Rezultat.Corect;
