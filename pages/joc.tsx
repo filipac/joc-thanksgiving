@@ -28,7 +28,9 @@ export const Joc = ({ all_persons, options }: Props) => {
     setDone(true);
   }, [pers]);
 
-  const allHasResult = pers.every((p) => p.raspuns && p.respuns.length > 0);
+  const allHasResult = pers.every((p) => {
+    return p.raspuns && p.raspuns.length > 0;
+  });
 
   return (
     <div suppressHydrationWarning>
